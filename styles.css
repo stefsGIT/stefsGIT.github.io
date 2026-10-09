@@ -14,7 +14,7 @@
 }
 
 body {
-    font-family: 'Tangerine', Georgia, serif;
+    font-family: system-ui, 'Helvetica', sans-serif;
     line-height: 1.6;
     color: #e8e8f0;
     background-color: #0b0b1a;   /* fallback color before the photo loads */
@@ -66,9 +66,11 @@ body {
 }
 
 .intro h1 {
-    font-size: 2.6rem;
-    font-weight: 600;
+    font-family: 'Tangerine', 'Georgia', cursive;  /* ornate script, title only */
+    font-size: 8rem;                 /* script fonts need to be BIG */
+    font-weight: 700;
     letter-spacing: 1px;
+    line-height: 1.05;
     color: #ffffff;
 }
 
@@ -159,6 +161,7 @@ body {
         height: auto;                 /* let each figure size to its own shape */
     }
     .cst-svg { height: auto; }        /* keep each constellation's proportions */
+    .intro h1 { font-size: 4.5rem; }  /* script title smaller on phones */
 }
 
 /* ===== Inner pages (About, Garden, etc.) ===== */
