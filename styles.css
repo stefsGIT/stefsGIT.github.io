@@ -183,13 +183,20 @@ body {
 
 
 /* ================================================================
-   ABOUT PAGE — light cream theme
+   ABOUT PAGE — light cream theme (scrapbook)
    ================================================================ */
-html:has(body.light) { background: #f6f1e7; }   /* cream behind the whole page */
+/* Robust cream background: a class on <html> works in every browser,
+   unlike html:has(...) which some mobile browsers don't support. */
+html.cream { background: #f6f1e7; }
+html:has(body.light) { background: #f6f1e7; }   /* belt-and-suspenders */
 body.light {
     background: #f6f1e7;            /* warm cream */
     color: #4a4038;                /* soft brown-grey text */
     min-height: 100vh;
+    /* faint paper grain so the cream feels like real scrapbook paper */
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(201,176,139,0.07) 0, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(201,176,139,0.07) 0, transparent 40%);
 }
 /* the About page has no sky/twinkle layers, so cover any that leak */
 body.light .sky, body.light .twinkles { display: none; }
@@ -215,21 +222,52 @@ body.light .sky, body.light .twinkles { display: none; }
     align-items: start;
 }
 
-/* ---- left: portrait ---- */
+/* ---- left: portrait as a taped polaroid ---- */
 .about-photo { position: relative; }
-.about-photo img {
+
+/* the polaroid: white card, thick bottom border, slight tilt */
+.polaroid {
+    position: relative;
+    background: #fffdf8;
+    padding: 12px 12px 48px;        /* big bottom = polaroid chin */
+    border-radius: 2px;
+    box-shadow: 0 14px 36px rgba(120, 95, 60, 0.28);
+    transform: rotate(-2.5deg);     /* casually placed */
+    max-width: 340px;               /* never balloons on mobile */
+    margin: 10px auto 0;
+}
+/* a strip of "washi tape" at the top */
+.polaroid::before {
+    content: "";
+    position: absolute;
+    top: -14px; left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    width: 120px; height: 28px;
+    background: rgba(192, 168, 150, 0.45);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.polaroid img {
+    display: block;
     width: 100%;
     height: auto;
-    border-radius: 6px;
-    box-shadow: 0 18px 50px rgba(120, 95, 60, 0.25);
+    border-radius: 1px;
+}
+.polaroid-caption {
+    font-family: 'Caveat', Georgia, serif;
+    font-size: 1.6rem;
+    text-align: center;
+    color: #6f5a44;
+    margin-top: 10px;
+    line-height: 1;
 }
 .photo-note {
-    margin-top: 16px;
-    font-family: Georgia, serif;
-    font-style: italic;
-    font-size: 0.95rem;
+    margin-top: 26px;
+    font-family: 'Caveat', Georgia, serif;
+    font-size: 1.4rem;
     color: #a98b6b;
-    line-height: 1.7;
+    line-height: 1.5;
+    text-align: center;
+    transform: rotate(-1deg);
 }
 
 /* ---- right: text ---- */
@@ -278,7 +316,20 @@ body.light .sky, body.light .twinkles { display: none; }
     grid-template-columns: 1fr 1fr;    /* 2x2 grid of coordinates */
     gap: 22px 28px;
 }
-.coord { display: flex; gap: 14px; align-items: flex-start; }
+/* each coordinate = a little paper card, slightly tilted */
+.coord {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: #fffdf8;
+    padding: 16px 18px;
+    border-radius: 3px;
+    box-shadow: 0 6px 16px rgba(120, 95, 60, 0.14);
+}
+.coord:nth-child(1) { transform: rotate(-1.5deg); }
+.coord:nth-child(2) { transform: rotate(1.2deg); }
+.coord:nth-child(3) { transform: rotate(1deg); }
+.coord:nth-child(4) { transform: rotate(-1deg); }
 .coord-icon {
     font-size: 1.5rem;
     color: #a98b6b;
@@ -308,7 +359,15 @@ body.light .sky, body.light .twinkles { display: none; }
 
 /* ---- phones: stack to one column ---- */
 @media (max-width: 760px) {
-    .about { grid-template-columns: 1fr; gap: 32px; }
+    .about {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 10px 20px 70px;
+        text-align: center;
+    }
     .about-text h1 { font-size: 3rem; }
     .coordinates { grid-template-columns: 1fr; }
+    .coord { text-align: left; }        /* keep card text left-aligned */
+    .coord-title { text-align: center; }
+    .polaroid { max-width: 280px; }     /* comfortable photo size on phones */
 }
