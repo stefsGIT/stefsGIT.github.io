@@ -143,6 +143,24 @@ body {
 .constellation:hover .cst-line  { stroke: rgba(201, 186, 255, 0.95); }
 .constellation:hover .cst-star  { fill: #d6ccff; }
 
+/* ---- phones: stop scattering the constellations, stack them in a column ---- */
+@media (max-width: 760px) {
+    .constellations {
+        height: auto;                 /* no fixed sky height — grow to fit */
+        display: flex;
+        flex-direction: column;       /* one on top of the next */
+        align-items: center;          /* centered horizontally */
+        gap: 30px;                    /* breathing room between them */
+        padding: 10px 20px 70px;
+    }
+    .constellation {
+        position: static;             /* ignore the desktop top/left scatter */
+        width: 210px;
+        height: auto;                 /* let each figure size to its own shape */
+    }
+    .cst-svg { height: auto; }        /* keep each constellation's proportions */
+}
+
 /* ===== Inner pages (About, Garden, etc.) ===== */
 .page {
     position: relative;
