@@ -6,16 +6,57 @@
     <title>About — Archive of my own</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <div class="sky"></div>
-    <div class="twinkles" id="twinkles"></div>
+  <body class="light">
+    <a class="back light-back" href="index.html">&larr; back to the sky</a>
 
-    <main class="page">
-      <a class="back" href="index.html">&larr; back to the sky</a>
-      <h1>About</h1>
-      <p>Cassiopeia. Who I am, what I'm about. (Coming soon.)</p>
+    <main class="about">
+      <!-- left: portrait -->
+      <div class="about-photo">
+        <img src="profile.jpg" alt="A portrait of Steffi" />
+        <p class="photo-note">same curiosity,<br />different horizons,<br />always one stef ahead</p>
+      </div>
+
+      <!-- right: intro + coordinates -->
+      <div class="about-text">
+        <p class="eyebrow">nice to meet you</p>
+        <h1>Steffi</h1>
+        <p class="tagline">tech &middot; business &middot; curiosity</p>
+        <p class="lede">I like understanding how things work &mdash; and making complicated things feel a little clearer.</p>
+
+        <h2 class="coord-title">a few coordinates</h2>
+        <div class="coordinates">
+          <div class="coord">
+            <span class="coord-icon">&#9906;</span>
+            <div>
+              <strong>Germany / Taiwan</strong>
+              <small>two places, one home</small>
+            </div>
+          </div>
+          <div class="coord">
+            <span class="coord-icon">&#128172;</span>
+            <div>
+              <strong>Languages</strong>
+              <small>German, English, a bit of Chinese (always learning)</small>
+            </div>
+          </div>
+          <div class="coord">
+            <span class="coord-icon">&#128187;</span>
+            <div>
+              <strong>Business + Tech</strong>
+              <small>people, ideas, impact</small>
+            </div>
+          </div>
+          <div class="coord">
+            <span class="coord-icon">&#9992;</span>
+            <div>
+              <strong>Travel</strong>
+              <small>new places, fresh perspectives, a brighter me</small>
+            </div>
+          </div>
+        </div>
+
+        <p class="more-soon">A journey, a timeline, and more &mdash; coming soon.</p>
+      </div>
     </main>
-
-    <script src="stars.js"></script>
   </body>
 </html>

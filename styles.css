@@ -162,3 +162,135 @@ body {
     transition: color 0.3s;
 }
 .back:hover { color: #ffffff; }
+
+
+/* ================================================================
+   ABOUT PAGE — light cream theme
+   ================================================================ */
+html:has(body.light) { background: #f6f1e7; }   /* cream behind the whole page */
+body.light {
+    background: #f6f1e7;            /* warm cream */
+    color: #4a4038;                /* soft brown-grey text */
+    min-height: 100vh;
+}
+/* the About page has no sky/twinkle layers, so cover any that leak */
+body.light .sky, body.light .twinkles { display: none; }
+
+.light-back {
+    display: inline-block;
+    margin: 24px 0 0 28px;
+    color: #a98b6b;
+    font-family: Georgia, serif;
+    font-style: italic;
+    text-decoration: none;
+    font-size: 1rem;
+}
+.light-back:hover { color: #6f5a44; }
+
+.about {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 20px 28px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;   /* two columns: photo | text */
+    gap: 48px;
+    align-items: start;
+}
+
+/* ---- left: portrait ---- */
+.about-photo { position: relative; }
+.about-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 18px 50px rgba(120, 95, 60, 0.25);
+}
+.photo-note {
+    margin-top: 16px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #a98b6b;
+    line-height: 1.7;
+}
+
+/* ---- right: text ---- */
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+    color: #b49877;
+    margin-bottom: 8px;
+}
+.about-text h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: 4rem;
+    line-height: 1;
+    color: #5a4632;
+    margin-bottom: 10px;
+}
+.tagline {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.8rem;
+    color: #9a7f5f;
+    margin-bottom: 26px;
+}
+.lede {
+    font-family: Georgia, serif;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: #4a4038;
+    margin-bottom: 40px;
+}
+
+.coord-title {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #9a7f5f;
+    margin-bottom: 20px;
+    border-top: 1px solid #ddd0bb;
+    padding-top: 22px;
+}
+.coordinates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;    /* 2x2 grid of coordinates */
+    gap: 22px 28px;
+}
+.coord { display: flex; gap: 14px; align-items: flex-start; }
+.coord-icon {
+    font-size: 1.5rem;
+    color: #a98b6b;
+    line-height: 1.2;
+    flex-shrink: 0;
+}
+.coord strong {
+    display: block;
+    font-size: 1.05rem;
+    color: #5a4632;
+    margin-bottom: 2px;
+}
+.coord small {
+    display: block;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #a2927d;
+}
+.more-soon {
+    margin-top: 40px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: #b49877;
+}
+
+/* ---- phones: stack to one column ---- */
+@media (max-width: 760px) {
+    .about { grid-template-columns: 1fr; gap: 32px; }
+    .about-text h1 { font-size: 3rem; }
+    .coordinates { grid-template-columns: 1fr; }
+}
