@@ -14,7 +14,7 @@
 }
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: system-ui, 'Helvetica';
     line-height: 1.6;
     color: #e8e8f0;
     background-color: #0b0b1a;   /* fallback color before the photo loads */
@@ -87,8 +87,8 @@ body {
 
 .constellation {
     position: absolute;               /* each placed by its own top/left */
-    width: 170px;
-    height: 130px;
+    width: 230px;
+    height: 190px;
     text-decoration: none;            /* no link underline */
     display: block;
 }
@@ -99,38 +99,49 @@ body {
     overflow: visible;
 }
 
+/* soft glow for the whole figure (CSS filter on the SVG) */
+.cst-svg { filter: drop-shadow(0 0 2px rgba(255,255,255,0.35)); }
+
 /* the star dots */
 .cst-star {
-    fill: #ffffff;
-    opacity: 0.85;
-    transition: fill 0.4s, r 0.4s;    /* smooth change on hover */
+    fill: #fdfdff;
+    transition: fill 0.5s, opacity 0.5s;
 }
 
-/* the connecting line */
+/* bright anchor stars get an extra glow */
+.cst-star.bright {
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.9));
+}
+
+/* the delicate connecting lines */
 .cst-line {
-    fill: none;
-    stroke: rgba(255, 255, 255, 0.25);
-    stroke-width: 1.5;
-    transition: stroke 0.4s;
+    stroke: rgba(255, 255, 255, 0.3);
+    stroke-width: 0.7;                 /* hair-thin */
+    transition: stroke 0.5s;
 }
 
-/* the label under each constellation */
+/* the label sitting in the sky, always visible (lowercase italic serif) */
 .cst-label {
     display: block;
     text-align: center;
-    margin-top: 6px;
-    color: #ffffff;
-    font-size: 0.95rem;
-    letter-spacing: 1px;
-    opacity: 0;                       /* hidden until hover */
-    transition: opacity 0.4s;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9);
+    margin-top: 2px;
+    color: #e9e6ff;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    opacity: 0.75;                     /* softly present, not hidden */
+    transition: opacity 0.5s, color 0.5s;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.9);
 }
 
-/* ---- hover: light the constellation up ---- */
-.constellation:hover .cst-label { opacity: 1; }
-.constellation:hover .cst-line  { stroke: rgba(185, 167, 255, 0.9); }
-.constellation:hover .cst-star  { fill: #b9a7ff; opacity: 1; }
+/* invisible hover catcher so the WHOLE constellation box is hoverable */
+.cst-hit { fill: transparent; }
+
+/* ---- hover: the constellation brightens & lavender tint ---- */
+.constellation:hover .cst-label { opacity: 1; color: #ffffff; }
+.constellation:hover .cst-line  { stroke: rgba(201, 186, 255, 0.95); }
+.constellation:hover .cst-star  { fill: #d6ccff; }
 
 /* ===== Inner pages (About, Garden, etc.) ===== */
 .page {
