@@ -2,11 +2,71 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Archive of my own</title>
-    <link rel="stylesheet" href="styles.css"
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <h1>One Stef Ahead</h1>
-    <p>Welcome to my corner of the internet. This is where I keep my work, my writing, and the things I'm building.</p>
+  <body class="home">
+    <!-- Layer 1: the night-sky photo, pinned behind everything -->
+    <div class="sky"></div>
+    <!-- Layer 2: live twinkling stars (filled in by stars.js) -->
+    <div class="twinkles" id="twinkles"></div>
+
+    <!-- The welcome text -->
+    <header class="intro">
+      <h1>One Stef Ahead</h1>
+      <p>An archive of my own. Wander the sky and pick a constellation.</p>
+    </header>
+
+    <!-- The constellations = navigation. Each links to a page. -->
+    <nav class="constellations">
+    <a class="constellation" href="about.html" style="top:17%; left:30%;" aria-label="About Me">
+      <svg class="cst-svg" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid meet">
+        <polyline class="cst-line" points="10,70 55,25 95,75 140,30 185,68" />
+        <circle class="cst-star" cx="10" cy="70" r="4" />
+        <circle class="cst-star" cx="55" cy="25" r="4" />
+        <circle class="cst-star" cx="95" cy="75" r="4" />
+        <circle class="cst-star" cx="140" cy="30" r="4" />
+        <circle class="cst-star" cx="185" cy="68" r="4" />
+      </svg>
+      <span class="cst-label">About Me</span>
+    </a>
+    <a class="constellation" href="garden.html" style="top:13%; left:60%;" aria-label="Secret Garden">
+      <svg class="cst-svg" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid meet">
+        <polyline class="cst-line" points="100,15 60,55 100,95 140,55 100,55 100,15" />
+        <circle class="cst-star" cx="100" cy="15" r="4" />
+        <circle class="cst-star" cx="60" cy="55" r="4" />
+        <circle class="cst-star" cx="100" cy="95" r="4" />
+        <circle class="cst-star" cx="140" cy="55" r="4" />
+        <circle class="cst-star" cx="100" cy="55" r="4" />
+      </svg>
+      <span class="cst-label">Secret Garden</span>
+    </a>
+    <a class="constellation" href="playground.html" style="top:34%; left:78%;" aria-label="Playground">
+      <svg class="cst-svg" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid meet">
+        <polyline class="cst-line" points="15,100 55,35 100,100 145,35 185,100" />
+        <circle class="cst-star" cx="15" cy="100" r="4" />
+        <circle class="cst-star" cx="55" cy="35" r="4" />
+        <circle class="cst-star" cx="100" cy="100" r="4" />
+        <circle class="cst-star" cx="145" cy="35" r="4" />
+        <circle class="cst-star" cx="185" cy="100" r="4" />
+      </svg>
+      <span class="cst-label">Playground</span>
+    </a>
+    <a class="constellation" href="projects.html" style="top:44%; left:46%;" aria-label="Projects">
+      <svg class="cst-svg" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid meet">
+        <polyline class="cst-line" points="100,15 62,80 100,62 138,80 100,135" />
+        <circle class="cst-star" cx="100" cy="15" r="4" />
+        <circle class="cst-star" cx="62" cy="80" r="4" />
+        <circle class="cst-star" cx="100" cy="62" r="4" />
+        <circle class="cst-star" cx="138" cy="80" r="4" />
+        <circle class="cst-star" cx="100" cy="135" r="4" />
+      </svg>
+      <span class="cst-label">Projects</span>
+    </a>
+    </nav>
+
+    <!-- Layer 3: the JavaScript that generates the twinkles -->
+    <script src="stars.js"></script>
   </body>
 </html>
